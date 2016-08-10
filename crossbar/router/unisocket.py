@@ -93,7 +93,7 @@ class UniSocketServerProtocol(Protocol):
 
                 # the first component for the URI requested, eg for "/ws/foo/bar", it'll be "ws", and "/"
                 # will map to ""
-                request_uri_first_component = filter(lambda x: x.strip() != "", request_uri.decode('UTF-8').split('/'))
+                request_uri_first_component = list(filter(lambda x: x.strip() != "", request_uri.decode('UTF-8').split('/')))
                 if len(request_uri_first_component) > 0:
                     request_uri_first_component = request_uri_first_component[0]
                 else:
